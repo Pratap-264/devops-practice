@@ -1,14 +1,25 @@
+#!/bin/bash
 import os
+import platform
 from datetime import datetime
 
-# 1. Automatically create a new folder named 'backup_logs'
-os.makedirs("backup_logs", exist_ok=True)
-print("Step 1: Verified backup_logs folder.")
+log_folder = "logs"
 
-# Get current timestamp
-current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+if not os.path.exists(log_folder):
+    os.makedirs(log_folder)
 
-with open("backup_logs/report.txt", "a") as file:
-    file.write(f"\n[{current_time}] DevOps Status Report: Systems operational.")
+time_stamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-print(f"Step 2: Log added at {current_time}!")
+log_file = f"{log_folder}/system_log_{time_stamp}.txt"
+
+with open(log_file, "w") as file:
+    file.write("===== SYSTEM CHECK REPORT =====\n")
+    file.write(f"Date & Time: {datetime.now()}\n")
+    file.write(f"System: {platform.system()}\n")
+    file.write(f"Node Name: {platform.node()}\n")
+    file.write(f"Release: {platform.release()}\n")
+    file.write(f"Version: {platform.version()}\n")
+    file.write(f"Machine: {platform.machine()}\n")
+    file.write(f"Processor: {platform.processor()}\n")
+
+print(f"Log saved in {log_file}")

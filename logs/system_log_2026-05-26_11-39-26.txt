@@ -1,0 +1,8 @@
+===== SYSTEM CHECK REPORT =====
+Date & Time: 2026-05-26 11:39:26.038024
+System: Linux
+Node Name: DESKTOP-BGABNEP
+Release: 6.6.114.1-microsoft-standard-WSL2
+Version: #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025
+Machine: x86_64
+Processor: x86_64
